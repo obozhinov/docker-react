@@ -1,0 +1,9 @@
+language: generic
+sudo: required
+services:
+  - docker
+
+bofore_install:
+  - docker build -t obozhinov/docker-react -f Dockerfile.dev .
+script:
+  - docker run -e CI=true obozhinov/docker-react npm run test
